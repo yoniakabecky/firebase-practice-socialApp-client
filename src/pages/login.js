@@ -13,33 +13,9 @@ import axios from 'axios';
 import { CircularProgress } from '@material-ui/core';
 
 
-const styles = {
-  form: {
-    textAlign: "center"
-  },
-  image: {
-    margin: "20px auto",
-    width: "70px"
-  },
-  pageTitle: {
-    margin: "10px auto",
-  },
-  textField: {
-    margin: "10px auto",
-  },
-  button: {
-    marginTop: "20px",
-    position: 'relative'
-  },
-  customError: {
-    color: 'red',
-    fontSize: '0.8rem',
-    marginTop: 10
-  },
-  progress: {
-    position: 'absolute'
-  }
-};
+const styles = (theme) => ({
+  ...theme.loginAndSignin
+});
 
 
 export class login extends Component {
@@ -65,6 +41,7 @@ export class login extends Component {
     axios.post("/login", userData)
       .then(res => {
         console.log(res.data);
+        localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
         this.setState({
           loading: true
         });
