@@ -7,9 +7,9 @@ export default {
       contrastText: '#fff',
     },
     secondary: {
-      light: '#f73378',
-      main: '#f50057',
-      dark: '#ab003c',
+      light: '#b1b1b1',
+      main: '#9e9e9e',
+      dark: '#6e6e6e',
       contrastText: '#fff',
     },
   },
@@ -31,7 +31,7 @@ export default {
       margin: "10px auto",
     },
     button: {
-      marginTop: "20px",
+      margin: "20px 0 10px 0",
       position: 'relative'
     },
     customError: {
