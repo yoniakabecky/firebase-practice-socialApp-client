@@ -108,7 +108,7 @@ class Profile extends Component {
         <Paper className={classes.paper}>
           <div className={classes.profile}>
             <div className="image-wrapper">
-              <img src={imageUrl} alt="profile" className="profile" className="profile-image" />
+              <img src={imageUrl} alt="profile" className="profile-image" />
               <input type="file" ref={this.fileInputRef} id="imageInput" hidden="hidden" onChange={this.handleImageChange} />
               <MyButton tip="Edit profile picture" onClick={this.handleEditPicture} btnClassName="button">
                 <EditIcon color="primary" />

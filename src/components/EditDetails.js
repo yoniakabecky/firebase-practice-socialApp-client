@@ -120,7 +120,7 @@ class EditDetails extends Component {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">Cancel</Button>
+            <Button onClick={this.handleClose} color="secondary">Cancel</Button>
             <Button onClick={this.handleSubmit} color="primary">Save</Button>
           </DialogActions>
         </Dialog>

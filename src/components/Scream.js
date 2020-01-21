@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import MyButton from '../utils/MyButton';
+import DeleteScream from './DeleteScream';
 
 // MUI Stuff
 import Card from '@material-ui/core/Card';
@@ -23,6 +24,7 @@ import { likeScream, unlikeScream } from '../redux/actions/dataAction';
 
 const styles = {
   card: {
+    position: "relative",
     display: "flex",
     marginBottom: 20
   },
@@ -65,7 +67,10 @@ export class Scream extends Component {
         commentCount
       },
       user: {
-        authenticated
+        authenticated,
+        credentials: {
+          handle
+        }
       }
     } = this.props;
 
@@ -87,6 +92,10 @@ export class Scream extends Component {
           )
       );
 
+    const deleteButton = authenticated && userHandle === handle ? (
+      <DeleteScream screamId={screamId} />
+    ) : null;
+
     return (
       <Card className={classes.card}>
         <CardMedia
@@ -100,8 +109,10 @@ export class Scream extends Component {
             component={Link}
             to={`/users/${userHandle}`}
             color="primary"
-          >{userHandle}
+          >
+            {userHandle}
           </Typography>
+          {deleteButton}
           <Typography variant="body2" color="textSecondary">
             {dayjs(createdAt).fromNow()}
           </Typography>
