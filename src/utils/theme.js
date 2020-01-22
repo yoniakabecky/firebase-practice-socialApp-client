@@ -16,7 +16,7 @@ export default {
   // typography: {
   //   useNextVariants: true
   // },
-  loginAndSignin: {
+  global: {
     form: {
       textAlign: "center"
     },

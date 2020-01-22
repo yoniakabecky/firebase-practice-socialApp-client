@@ -20,7 +20,7 @@ import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 
 // Redux
 import { connect } from 'react-redux';
-import { likeScream, unlikeScream } from '../redux/actions/dataAction';
+import { likeScream, unlikeScream } from '../redux/actions/dataActions';
 
 const styles = {
   card: {

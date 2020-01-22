@@ -20,7 +20,7 @@ import EditIcon from '@material-ui/icons/Edit';
 
 
 const styles = (theme) => ({
-  ...theme.loginAndSignin,
+  ...theme.global,
   button: {
     float: "right"
   }

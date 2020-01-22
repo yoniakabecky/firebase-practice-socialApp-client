@@ -17,7 +17,7 @@ import { signupUser } from '../redux/actions/userActions';
 
 
 const styles = (theme) => ({
-  ...theme.loginAndSignin
+  ...theme.global
 });
 
 
