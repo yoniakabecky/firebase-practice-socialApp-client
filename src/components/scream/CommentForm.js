@@ -22,15 +22,26 @@ export class CommentForm extends Component {
     errors: {}
   };
 
-  static getDerivedStateFromProps(nextProps, prevState) {
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   if (nextProps.UI.errors) {
+  //     return { errors: nextProps.UI.errors };
+  //   }
+  //   if (!nextProps.UI.errors && !nextProps.UI.loading) {
+  //     return { body: "" };
+  //   }
+  //   else return null;
+  // };
+
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.UI.errors) {
-      return { errors: nextProps.UI.errors };
+      this.setState({
+        errors: nextProps.UI.errors
+      });
     }
     if (!nextProps.UI.errors && !nextProps.UI.loading) {
-      return { body: "", errors: {} };
+      this.setState({ body: "" });
     }
-    else return null;
-  };
+  }
 
   handleChange = event => {
     this.setState({
@@ -40,9 +51,12 @@ export class CommentForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.submitComment(this.props.screamId, {
-      body: this.state.body
-    });
+    this.props.submitComment(
+      this.props.screamId,
+      {
+        body: this.state.body
+      }
+    );
   };
 
   render() {
