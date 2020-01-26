@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Grid from '@material-ui/core/Grid';
-
 import Scream from '../components/scream/Scream';
 import Profile from '../components/profile/Profile';
+import ScreamSkeleton from '../utils/ScreamSkeleton';
+
+import Grid from '@material-ui/core/Grid';
 
 import { connect } from 'react-redux';
 import { getScreams } from '../redux/actions/dataActions';
+
 
 export class home extends Component {
   state = {
@@ -22,7 +24,7 @@ export class home extends Component {
 
     let recentScreamsMarkup = !loading
       ? screams.map(scream => <Scream scream={scream} key={scream.screamId} />)
-      : <p>Loading...</p>;
+      : <ScreamSkeleton />;
 
     return (
       <Grid container spacing={2}>
@@ -36,7 +38,6 @@ export class home extends Component {
     );
   }
 }
-
 
 home.propTypes = {
   getScreams: PropTypes.func.isRequired,
